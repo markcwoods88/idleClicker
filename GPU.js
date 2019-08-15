@@ -1,7 +1,7 @@
 function upgradeGPU() {
-    if (ram >= 100) {
+    if (money >= 10000) {
       gpu++;
-      ram = ram - 100;
+      money = money - 10000;
       dps = dps + 100;
     } else {
       console.log('You Broke!');
@@ -9,9 +9,9 @@ function upgradeGPU() {
   }
   
   function upgradeGPU5() {
-    if (ram >= 500) {
+    if (money >= 50000) {
       gpu++;
-      ram = ram - 500;
+      money = money - 50000;
       dps = dps + 500;
     } else {
       console.log('You Broke!');
@@ -19,9 +19,9 @@ function upgradeGPU() {
   }
 
   function upgradeGPU25() {
-    if (ram >= 2500) {
+    if (money >= 250000) {
       gpu++;
-      ram = ram - 2500;
+      money = money - 250000;
       dps = dps + 2500;
     } else {
       console.log('You Broke!');
@@ -29,9 +29,9 @@ function upgradeGPU() {
   }
 
   function upgradeGPU50() {
-    if (ram >= 5000) {
+    if (money >= 500000) {
       gpu++;
-      ram = ram - 5000;
+      money = money - 500000;
       dps = dps + 5000;
     } else {
       console.log('You Broke!');
@@ -39,9 +39,9 @@ function upgradeGPU() {
   }
 
   function upgradeGPU100() {
-    if (ram >= 10000) {
+    if (money >= 1000000) {
       gpu++;
-      ram = ram - 10000;
+      money = money - 1000000;
       dps = dps + 10000;
     } else {
       console.log('You Broke!');

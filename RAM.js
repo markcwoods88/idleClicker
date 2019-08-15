@@ -1,7 +1,7 @@
 function upgradeRAM() {
-    if (cpu >= 10) {
+    if (money >= 1000) {
       ram++;
-      cpu = cpu - 10;
+      money = money - 1000;
       dps = dps + 10;
     } else {
       console.log('You Broke!');
@@ -9,9 +9,9 @@ function upgradeRAM() {
   }
 
   function upgradeRAM5() {
-    if (cpu >= 50) {
+    if (money >= 5000) {
       ram = ram + 5;
-      cpu = cpu - 50;
+      money = money - 5000;
       dps = dps + 50;
     } else {
       console.log('You Broke!');
@@ -19,9 +19,9 @@ function upgradeRAM() {
   }
 
   function upgradeRAM25() {
-    if (cpu >= 250) {
+    if (money >= 25000) {
       ram = ram + 25;
-      cpu = cpu - 250;
+      money = money - 25000;
       dps = dps + 250;
     } else {
       console.log('You Broke!');
@@ -29,9 +29,9 @@ function upgradeRAM() {
   }
 
   function upgradeRAM50() {
-    if (cpu >= 500) {
+    if (money >= 50000) {
       ram = ram + 50;
-      cpu = cpu - 500;
+      money = money - 50000;
       dps = dps + 500;
     } else {
       console.log('You Broke!');
@@ -39,9 +39,9 @@ function upgradeRAM() {
   }
 
   function upgradeRAM100() {
-    if (cpu >= 1000) {
+    if (money >= 100000) {
       ram = ram + 100;
-      cpu = cpu - 1000;
+      money = money - 100000;
       dps = dps + 1000;
     } else {
       console.log('You Broke!');
