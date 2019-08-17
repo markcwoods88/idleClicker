@@ -300,10 +300,10 @@
                 },
                 namespaces: {}
               },
-              'src/data/local_storage.js': {
-                name: 'src/data/local_storage.js',
+              'src/data/local_hdd.js': {
+                name: 'src/data/local_hdd.js',
                 modules: {
-                  LocalStorage: 1
+                  Localhdd: 1
                 },
                 classes: {},
                 fors: {
@@ -1067,7 +1067,7 @@
               Data: {
                 name: 'Data',
                 submodules: {
-                  LocalStorage: 1,
+                  Localhdd: 1,
                   Dictionary: 1,
                   'Array Functions': 1,
                   Conversion: 1,
@@ -1087,8 +1087,8 @@
                 file: 'src/data/p5.TypedDict.js',
                 line: 422
               },
-              LocalStorage: {
-                name: 'LocalStorage',
+              Localhdd: {
+                name: 'Localhdd',
                 submodules: {},
                 elements: {},
                 classes: {},
@@ -1099,10 +1099,10 @@
                 namespaces: {},
                 module: 'Data',
                 namespace: '',
-                file: 'src/data/local_storage.js',
+                file: 'src/data/local_hdd.js',
                 line: 1,
                 requires: [
-                  'core\n\nThis module defines the p5 methods for working with local storage'
+                  'core\n\nThis module defines the p5 methods for working with local hdd'
                 ]
               },
               Dictionary: {
@@ -8651,10 +8651,10 @@
                 ]
               },
               {
-                file: 'src/data/local_storage.js',
+                file: 'src/data/local_hdd.js',
                 line: 11,
                 description:
-                  '<p>Stores a value in local storage under the key name.\n Local storage is saved in the browser and persists\n between browsing sessions and page reloads.\n The key can be the name of the variable but doesn&#39;t\n have to be. To retrieve stored items\n see <a href="#/p5/getItem">getItem</a>.\n <br><br>\n Sensitive data such as passwords or personal information\n should not be stored in local storage.</p>\n',
+                  '<p>Stores a value in local hdd under the key name.\n Local hdd is saved in the browser and persists\n between browsing sessions and page reloads.\n The key can be the name of the variable but doesn&#39;t\n have to be. To retrieve stored items\n see <a href="#/p5/getItem">getItem</a>.\n <br><br>\n Sensitive data such as passwords or personal information\n should not be stored in local hdd.</p>\n',
                 itemtype: 'method',
                 name: 'storeItem',
                 params: [
@@ -8676,20 +8676,20 @@
                   'When you type the key name is displayed as black text on white background.\n If you reload the page, the last letter typed is still displaying.',
                 class: 'p5',
                 module: 'Data',
-                submodule: 'LocalStorage'
+                submodule: 'Localhdd'
               },
               {
-                file: 'src/data/local_storage.js',
+                file: 'src/data/local_hdd.js',
                 line: 88,
                 description:
-                  '<p>Returns the value of an item that was stored in local storage\n using storeItem()</p>\n',
+                  '<p>Returns the value of an item that was stored in local hdd\n using storeItem()</p>\n',
                 itemtype: 'method',
                 name: 'getItem',
                 params: [
                   {
                     name: 'key',
                     description:
-                      '<p>name that you wish to use to store in local storage</p>\n',
+                      '<p>name that you wish to use to store in local hdd</p>\n',
                     type: 'String'
                   }
                 ],
@@ -8704,24 +8704,24 @@
                   'If you click, the canvas changes to a random color.\n If you reload the page, the canvas is still the color it\n was when the page was previously loaded.',
                 class: 'p5',
                 module: 'Data',
-                submodule: 'LocalStorage'
+                submodule: 'Localhdd'
               },
               {
-                file: 'src/data/local_storage.js',
+                file: 'src/data/local_hdd.js',
                 line: 163,
                 description:
-                  '<p>Clears all local storage items set with storeItem()\n for the current domain.</p>\n',
+                  '<p>Clears all local hdd items set with storeItem()\n for the current domain.</p>\n',
                 itemtype: 'method',
-                name: 'clearStorage',
+                name: 'clearhdd',
                 example: [
-                  "\n <div class=\"norender\">\n <code>\n function setup() {\n   let myNum = 10;\n   let myBool = false;\n   storeItem('myNum', myNum);\n   storeItem('myBool', myBool);\n   print(getItem('myNum')); // logs 10 to the console\n   print(getItem('myBool')); // logs false to the console\n   clearStorage();\n   print(getItem('myNum')); // logs null to the console\n   print(getItem('myBool')); // logs null to the console\n }\n </code></div>"
+                  "\n <div class=\"norender\">\n <code>\n function setup() {\n   let myNum = 10;\n   let myBool = false;\n   storeItem('myNum', myNum);\n   storeItem('myBool', myBool);\n   print(getItem('myNum')); // logs 10 to the console\n   print(getItem('myBool')); // logs false to the console\n   clearhdd();\n   print(getItem('myNum')); // logs null to the console\n   print(getItem('myBool')); // logs null to the console\n }\n </code></div>"
                 ],
                 class: 'p5',
                 module: 'Data',
-                submodule: 'LocalStorage'
+                submodule: 'Localhdd'
               },
               {
-                file: 'src/data/local_storage.js',
+                file: 'src/data/local_hdd.js',
                 line: 191,
                 description: '<p>Removes an item that was stored with storeItem()</p>\n',
                 itemtype: 'method',
@@ -8738,7 +8738,7 @@
                 ],
                 class: 'p5',
                 module: 'Data',
-                submodule: 'LocalStorage'
+                submodule: 'Localhdd'
               },
               {
                 file: 'src/data/p5.TypedDict.js',
@@ -27532,11 +27532,11 @@
               },
               {
                 message: 'unknown tag: alt',
-                line: ' src/data/local_storage.js:11'
+                line: ' src/data/local_hdd.js:11'
               },
               {
                 message: 'unknown tag: alt',
-                line: ' src/data/local_storage.js:88'
+                line: ' src/data/local_hdd.js:88'
               },
               {
                 message: 'unknown tag: alt',
@@ -41027,7 +41027,7 @@
                   maxp.maxCompositeContours = p.parseUShort();
                   maxp.maxZones = p.parseUShort();
                   maxp.maxTwilightPoints = p.parseUShort();
-                  maxp.maxStorage = p.parseUShort();
+                  maxp.maxhdd = p.parseUShort();
                   maxp.maxFunctionDefs = p.parseUShort();
                   maxp.maxInstructionDefs = p.parseUShort();
                   maxp.maxStackElements = p.parseUShort();
@@ -49796,7 +49796,7 @@
 
           // data
           _dereq_('./data/p5.TypedDict');
-          _dereq_('./data/local_storage.js');
+          _dereq_('./data/local_hdd.js');
 
           // events
           _dereq_('./events/acceleration');
@@ -49880,7 +49880,7 @@
           './core/shim': 34,
           './core/structure': 35,
           './core/transform': 36,
-          './data/local_storage.js': 37,
+          './data/local_hdd.js': 37,
           './data/p5.TypedDict': 38,
           './events/acceleration': 39,
           './events/keyboard': 40,
@@ -62280,10 +62280,10 @@
         function(_dereq_, module, exports) {
           /**
            * @module Data
-           * @submodule LocalStorage
+           * @submodule Localhdd
            * @requires core
            *
-           * This module defines the p5 methods for working with local storage
+           * This module defines the p5 methods for working with local hdd
            */
 
           'use strict';
@@ -62307,15 +62307,15 @@
           var p5 = _dereq_('../core/main');
           /**
            *
-           * Stores a value in local storage under the key name.
-           * Local storage is saved in the browser and persists
+           * Stores a value in local hdd under the key name.
+           * Local hdd is saved in the browser and persists
            * between browsing sessions and page reloads.
            * The key can be the name of the variable but doesn't
            * have to be. To retrieve stored items
            * see <a href="#/p5/getItem">getItem</a>.
            * <br><br>
            * Sensitive data such as passwords or personal information
-           * should not be stored in local storage.
+           * should not be stored in local hdd.
            *
            * @method storeItem
            * @for p5
@@ -62377,19 +62377,19 @@
                 break;
             }
 
-            localStorage.setItem(key, value);
+            localhdd.setItem(key, value);
             var typeKey = key + 'p5TypeID';
-            localStorage.setItem(typeKey, type);
+            localhdd.setItem(typeKey, type);
           };
 
           /**
            *
-           * Returns the value of an item that was stored in local storage
+           * Returns the value of an item that was stored in local hdd
            * using storeItem()
            *
            * @method getItem
            * @for p5
-           * @param {String} key name that you wish to use to store in local storage
+           * @param {String} key name that you wish to use to store in local hdd
            * @return {Number|Object|String|Boolean|p5.Color} Value of stored item
            *
            * @example
@@ -62426,13 +62426,13 @@
            *
            */
           p5.prototype.getItem = function(key) {
-            var value = localStorage.getItem(key);
-            var type = localStorage.getItem(key + 'p5TypeID');
+            var value = localhdd.getItem(key);
+            var type = localhdd.getItem(key + 'p5TypeID');
             if (typeof type === 'undefined') {
               console.log(
                 'Unable to determine type of item stored under ' +
                   key +
-                  'in local storage. Did you save the item with something other than setItem()?'
+                  'in local hdd. Did you save the item with something other than setItem()?'
               );
             } else if (value !== null) {
               switch (type) {
@@ -62459,10 +62459,10 @@
 
           /**
            *
-           * Clears all local storage items set with storeItem()
+           * Clears all local hdd items set with storeItem()
            * for the current domain.
            *
-           * @method clearStorage
+           * @method clearhdd
            * @for p5
            *
            * @example
@@ -62475,14 +62475,14 @@
            *   storeItem('myBool', myBool);
            *   print(getItem('myNum')); // logs 10 to the console
            *   print(getItem('myBool')); // logs false to the console
-           *   clearStorage();
+           *   clearhdd();
            *   print(getItem('myNum')); // logs null to the console
            *   print(getItem('myBool')); // logs null to the console
            * }
            * </code></div>
            */
-          p5.prototype.clearStorage = function() {
-            localStorage.clear();
+          p5.prototype.clearhdd = function() {
+            localhdd.clear();
           };
 
           /**
@@ -62513,8 +62513,8 @@
                   ' is not a string.'
               );
             }
-            localStorage.removeItem(key);
-            localStorage.removeItem(key + 'p5TypeID');
+            localhdd.removeItem(key);
+            localhdd.removeItem(key + 'p5TypeID');
           };
         },
         { '../core/main': 24 }

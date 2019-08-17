@@ -1,7 +1,7 @@
 function hireTech() {
-    if (storage >= 10000) {
+    if (money >= 100000) {
       tech++;
-      storage = storage - 10000;
+      money = money - 100000;
       dps = dps + 1000;
     } else {
       console.log('You Broke!');
@@ -9,9 +9,9 @@ function hireTech() {
   }
   
 function hireTech5() {
-    if (storage >= 50000) {
+    if (money >= 500000) {
       tech++;
-      storage = storage - 50000;
+      money = money - 500000;
       dps = dps + 5000;
     } else {
       console.log('You Broke!');
@@ -19,9 +19,9 @@ function hireTech5() {
   }
   
 function hireTech25() {
-    if (storage >= 250000) {
+    if (money >= 2500000) {
       tech++;
-      storage = storage - 250000;
+      money = money - 2500000;
       dps = dps + 25000;
     } else {
       console.log('You Broke!');
@@ -29,9 +29,9 @@ function hireTech25() {
   }
   
 function hireTech50() {
-    if (storage >= 500000) {
+    if (money >= 5000000) {
       tech++;
-      storage = storage - 500000;
+      money = money - 5000000;
       dps = dps + 50000;
     } else {
       console.log('You Broke!');
@@ -39,9 +39,9 @@ function hireTech50() {
   }
   
 function hireTech100() {
-    if (storage >= 1000000) {
+    if (money >= 10000000) {
       tech++;
-      storage = storage - 1000000;
+      money = money - 10000000;
       dps = dps + 100000;
     } else {
       console.log('You Broke!');

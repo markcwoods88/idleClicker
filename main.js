@@ -7,7 +7,7 @@ let money = 0;
 let squidCoin = 0
 let dps = 0;
 let ram = 0;
-let storage = 0;
+let hdd = 0;
 let gpu = 0;
 let tech = 0;
 let cpu = 0;
@@ -19,7 +19,7 @@ function setup() {
   newGame();
   //loadGameState();
   
-  button = createButton('Make $5');
+  button = createButton('Beg For $5');
   button.position(320, 20);
   button.mousePressed(makeMoney);
 
@@ -86,19 +86,19 @@ function setup() {
 
   button = createImg('assets/ssd.png');
   button.position(10, 410);
-  button.mousePressed(upgradeStorage);
+  button.mousePressed(upgradehdd);
   button = createImg('assets/ssd.png');
   button.position(115, 410);
-  button.mousePressed(upgradeStorage5);
+  button.mousePressed(upgradehdd5);
   button = createImg('assets/ssd.png');
   button.position(220, 410);
-  button.mousePressed(upgradeStorage25);
+  button.mousePressed(upgradehdd25);
   button = createImg('assets/ssd.png');
   button.position(325, 410);
-  button.mousePressed(upgradeStorage50);
+  button.mousePressed(upgradehdd50);
   button = createImg('assets/ssd.png');
   button.position(430, 410);
-  button.mousePressed(upgradeStorage100);
+  button.mousePressed(upgradehdd100);
 
   button = createImg('assets/CPU_1.png');
   button.position(10, 520);
@@ -138,8 +138,8 @@ function draw() {
   text(nfc('Cost: $10,000', 0), 10, 765); // Cost of GPU's
   text('+100 DPS', 10, 780); // DPS Increase
 
-  text(nfc('SSD\'s:' + ' ' + storage, 0), 10, 800); // Ammount of Storage
-  text(nfc('Cost: $50,000', 0), 10, 815); // Cost of Storage
+  text(nfc('HDD\'s:' + ' ' + hdd, 0), 10, 800); // Ammount of hdd
+  text(nfc('Cost: $50,000', 0), 10, 815); // Cost of hdd
   text('+500 DPS', 10, 830); // DPS Increase
 
   text(nfc('Techs:' + ' ' + tech, 0), 10, 850); // Ammount of Techs
@@ -156,7 +156,7 @@ function saveGameState() {
         squidCoin: squidCoin,
         dps: dps,
         ram: ram,
-        storage: storage,
+        hdd: hdd,
         gpu: gpu,
         tech: tech
     };
@@ -170,7 +170,7 @@ function loadGameState() {
     squidCoin = file.squidCoin;
     dps = file.dps;
     ram = file.ram;
-    storage = file.storage;
+    hdd = file.hdd;
     gpu = file.gpu;
     tech = file.tech;
 }  
@@ -180,7 +180,7 @@ function newGame() {
     squidCoin = 0
     dps = 0;
     ram = 0;
-    storage = 0;
+    hdd = 0;
     gpu = 0;
     tech = 0;
     cpu = 0;

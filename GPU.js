@@ -10,7 +10,7 @@ function upgradeGPU() {
   
   function upgradeGPU5() {
     if (money >= 50000) {
-      gpu++;
+      gpu = gpu + 5;
       money = money - 50000;
       dps = dps + 500;
     } else {
@@ -20,7 +20,7 @@ function upgradeGPU() {
 
   function upgradeGPU25() {
     if (money >= 250000) {
-      gpu++;
+      gpu = gpu + 25;
       money = money - 250000;
       dps = dps + 2500;
     } else {
@@ -30,7 +30,7 @@ function upgradeGPU() {
 
   function upgradeGPU50() {
     if (money >= 500000) {
-      gpu++;
+      gpu = gpu + 50;
       money = money - 500000;
       dps = dps + 5000;
     } else {
@@ -40,7 +40,7 @@ function upgradeGPU() {
 
   function upgradeGPU100() {
     if (money >= 1000000) {
-      gpu++;
+      gpu = gpu + 100;
       money = money - 1000000;
       dps = dps + 10000;
     } else {
