@@ -128,7 +128,7 @@ function setup() {
 
 function draw() {
   background(150);
-  textSize(15);
+  textSize(18);
   
   text('Money:' + ' $' + abbreviateNumber(money, 3), 50, 20); // Money
   text('SquidCoins: ' + abbreviateNumber(squidCoin, 3), 50, 40); // SquidCoins
@@ -156,7 +156,7 @@ function draw() {
 
 }
 
-function abbreviateNumber(num, fixed) {
+function abbreviateNumber(num, fixed) { // takes large numbers like 100,000 and makes them 100k
   if (num === null) { return null; } // terminate early
   if (num === 0) { return '0'; } // terminate early
   fixed = (!fixed || fixed < 0) ? 0 : fixed; // number of decimal places to show
@@ -168,9 +168,7 @@ function abbreviateNumber(num, fixed) {
   return e;
 }
 
-
-
-function saveGameState() {
+function saveGameState() { // saves the game
   var file = {
         money: money,
         cpu: cpu,
@@ -184,7 +182,7 @@ function saveGameState() {
     localStorage.setItem('saveFile',JSON.stringify(file));
 }
 
-function loadGameState() {
+function loadGameState() { // loads the game
   var file = JSON.parse(localStorage.getItem('saveFile'));
     money = file.money;
     cpu = file.cpu;
@@ -196,7 +194,7 @@ function loadGameState() {
     tech = file.tech;
 }  
 
-function newGame() {
+function newGame() { // starts a new game
     money = 0;
     squidCoin = 0
     dps = 0;
@@ -213,11 +211,10 @@ function increaseDPS() {
   }
 }
 
-function makeMoney() {
-  money = money + 5;
+function makeMoney() { // beg for 5$... but 1k for testing
+  money = money + 1000;
 }
 
 // Add text below each button for how much DPS it adds.
 // buy squidcoin button.
 // squidcoins will buy big upgrades.
-// Round NUMBERS!!
