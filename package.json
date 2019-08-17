@@ -1,5 +1,13 @@
 {
+    "main": "index.html",
     "name": "squidcoin",
-    "version": "0.0.1",
-    "main": "index.html"
+    "window": {
+      "title": "SquidCoin",
+      "width": ,
+      "height": ,
+      "fullscreen": false,
+      "toolbar": true
+    },
+    "version": "0.1.0",
+    "chromium-args": "--data-path='./saves/' --in-process-gpu --disable-transparency"
   }
