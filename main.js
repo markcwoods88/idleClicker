@@ -28,11 +28,11 @@ function setup() {
   //loadGameState();
   
   button = createButton('Beg For $5');
-  button.position(320, 20);
+  button.position(320, 25);
   button.mousePressed(makeMoney);
 
   button = createButton('Start New Game');
-  button.position(320, 45);
+  button.position(320, 850);
   button.mousePressed(newGame);
 
   button = createButton('Save Game');
@@ -43,20 +43,19 @@ function setup() {
   button.position(450, 35);
   button.mousePressed(loadGameState);
 
-  
-  button = createImg('assets/cpuX1.png');
+  button = createImg('assets/cpu.png');
   button.position(10, 80);
   button.mousePressed(upgradeCPU); 
-  button = createImg('assets/cpuX5.png');
+  button = createImg('assets/cpu.png');
   button.position(115, 80);
   button.mousePressed(upgradeCPU5);
-  button = createImg('assets/cpuX25.png');
+  button = createImg('assets/cpu.png');
   button.position(220, 80);
   button.mousePressed(upgradeCPU25);
-  button = createImg('assets/cpuX50.png');
+  button = createImg('assets/cpu.png');
   button.position(325, 80);
   button.mousePressed(upgradeCPU50);
-  button = createImg('assets/cpuX100.png');
+  button = createImg('assets/cpu.png');
   button.position(430, 80);
   button.mousePressed(upgradeCPU100);
   
@@ -77,51 +76,51 @@ function setup() {
   button.mousePressed(upgradeRAM100);
 
   button = createImg('assets/gpu.png');
-  button.position(10, 300);
+  button.position(10, 285);
   button.mousePressed(upgradeGPU);
   button = createImg('assets/gpu.png');
-  button.position(115, 300);
+  button.position(115, 285);
   button.mousePressed(upgradeGPU5);
   button = createImg('assets/gpu.png');
-  button.position(220, 300);
+  button.position(220, 285);
   button.mousePressed(upgradeGPU25);
   button = createImg('assets/gpu.png');
-  button.position(325, 300);
+  button.position(325, 285);
   button.mousePressed(upgradeGPU50);
   button = createImg('assets/gpu.png');
-  button.position(430, 300);
+  button.position(430, 285);
   button.mousePressed(upgradeGPU100);
 
-  button = createImg('assets/ssd.png');
-  button.position(10, 410);
+  button = createImg('assets/hdd.png');
+  button.position(10, 360);
   button.mousePressed(upgradehdd);
-  button = createImg('assets/ssd.png');
-  button.position(115, 410);
+  button = createImg('assets/hdd.png');
+  button.position(115, 360);
   button.mousePressed(upgradehdd5);
-  button = createImg('assets/ssd.png');
-  button.position(220, 410);
+  button = createImg('assets/hdd.png');
+  button.position(220, 360);
   button.mousePressed(upgradehdd25);
-  button = createImg('assets/ssd.png');
-  button.position(325, 410);
+  button = createImg('assets/hdd.png');
+  button.position(325, 360);
   button.mousePressed(upgradehdd50);
-  button = createImg('assets/ssd.png');
-  button.position(430, 410);
+  button = createImg('assets/hdd.png');
+  button.position(430, 360);
   button.mousePressed(upgradehdd100);
 
-  button = createImg('assets/CPU_1.png');
-  button.position(10, 520);
+  button = createImg('assets/tech.png');
+  button.position(10, 485);
   button.mousePressed(hireTech);
-  button = createImg('assets/CPU_5.png');
-  button.position(115, 520);
+  button = createImg('assets/tech.png');
+  button.position(115, 485);
   button.mousePressed(hireTech5);
-  button = createImg('assets/CPU_25.png');
-  button.position(220, 520);
+  button = createImg('assets/tech.png');
+  button.position(220, 485);
   button.mousePressed(hireTech25);
-  button = createImg('assets/CPU_50.png');
-  button.position(325, 520);
+  button = createImg('assets/tech.png');
+  button.position(325, 485);
   button.mousePressed(hireTech50);
-  button = createImg('assets/CPU_100.png');
-  button.position(430, 520);
+  button = createImg('assets/tech.png');
+  button.position(430, 485);
   button.mousePressed(hireTech100);
 
 }
@@ -138,22 +137,51 @@ function draw() {
   text('Cost: $' + abbreviateNumber(costOfCPU, 3), 10, 665); // Cost of CPU's
   text('+1 DPS', 10, 680); // DPS Increase
 
-  text('RAM:' + ' ' + abbreviateNumber(ram, 3), 10, 700); // Ammount of RAM
-  text('Cost: $' + abbreviateNumber(costOfRAM, 3), 10, 715); // Cost of RAM
-  text('+10 DPS', 10, 730); // DPS Increase
+  text('RAM:' + ' ' + abbreviateNumber(ram, 3), 200, 650); // Ammount of RAM
+  text('Cost: $' + abbreviateNumber(costOfRAM, 3), 200, 665); // Cost of RAM
+  text('+10 DPS', 200, 680); // DPS Increase
 
   text('GPU\'s:' + ' ' + abbreviateNumber(gpu, 3), 10, 750); // Ammount of GPU's
   text('Cost: $' + abbreviateNumber(costOfGPU, 3), 10, 765); // Cost of GPU's
   text('+100 DPS', 10, 780); // DPS Increase
 
-  text('HDD\'s:' + ' ' + abbreviateNumber(hdd, 3), 10, 800); // Ammount of hdd
-  text('Cost: ' + abbreviateNumber(costOfHDD, 0), 10, 815); // Cost of hdd
-  text('+500 DPS', 10, 830); // DPS Increase
+  text('HDD\'s:' + ' ' + abbreviateNumber(hdd, 3), 200, 750); // Ammount of hdd
+  text('Cost: ' + abbreviateNumber(costOfHDD, 0), 200, 765); // Cost of hdd
+  text('+500 DPS', 200, 780); // DPS Increase
 
   text('Techs:' + ' ' + abbreviateNumber(tech, 3), 10, 850); // Ammount of Techs
   text('Cost: $' + abbreviateNumber(costOfTechs, 3), 10, 865); // Cost of Techs
   text('+1,000 DPS', 10, 880); // DPS Increase
 
+  text('X1', 50, 200);
+  text('X5', 155, 200);
+  text('X25', 255, 200);
+  text('X50', 360, 200);
+  text('X100', 460, 200);
+
+  text('X1', 50, 270);
+  text('X5', 155, 270);
+  text('X25', 255, 270);
+  text('X50', 360, 270);
+  text('X100', 460, 270);
+
+  text('X1', 50, 350);
+  text('X5', 155, 350);
+  text('X25', 255, 350);
+  text('X50', 360, 350);
+  text('X100', 460, 350);
+
+  text('X1', 50, 475);
+  text('X5', 155, 475);
+  text('X25', 255, 475);
+  text('X50', 360, 475);
+  text('X100', 460, 475);
+
+  text('X1', 50, 605);
+  text('X5', 155, 605);
+  text('X25', 255, 605);
+  text('X50', 360, 605);
+  text('X100', 460, 605);
 }
 
 function abbreviateNumber(num, fixed) { // takes large numbers like 100,000 and makes them 100k
