@@ -254,8 +254,8 @@ function increaseDPS() {
   }
 }
 
-function makeMoney() { // beg for 5$... but 1k for testing
-  money = money + 1000;
+function makeMoney() { // beg for 5$
+  money = money + 5;
 }
 
 // Add text below each button for how much DPS it adds.
