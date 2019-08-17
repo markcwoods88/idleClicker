@@ -44,19 +44,19 @@ function setup() {
   button.mousePressed(loadGameState);
 
   
-  button = createImg('assets/cpu.png');
+  button = createImg('assets/cpuX1.png');
   button.position(10, 80);
   button.mousePressed(upgradeCPU); 
-  button = createImg('assets/cpu.png');
+  button = createImg('assets/cpuX5.png');
   button.position(115, 80);
   button.mousePressed(upgradeCPU5);
-  button = createImg('assets/cpu.png');
+  button = createImg('assets/cpuX25.png');
   button.position(220, 80);
   button.mousePressed(upgradeCPU25);
-  button = createImg('assets/cpu.png');
+  button = createImg('assets/cpuX50.png');
   button.position(325, 80);
   button.mousePressed(upgradeCPU50);
-  button = createImg('assets/cpu.png');
+  button = createImg('assets/cpuX100.png');
   button.position(430, 80);
   button.mousePressed(upgradeCPU100);
   
@@ -177,7 +177,12 @@ function saveGameState() { // saves the game
         ram: ram,
         hdd: hdd,
         gpu: gpu,
-        tech: tech
+        tech: tech,
+        costOfCPU: costOfCPU,
+        costOfRAM: costOfRAM,
+        costOfGPU: costOfGPU,
+        costOfHDD: costOfHDD,
+        costOfTechs: costOfTechs
     };
     localStorage.setItem('saveFile',JSON.stringify(file));
 }
@@ -192,6 +197,11 @@ function loadGameState() { // loads the game
     hdd = file.hdd;
     gpu = file.gpu;
     tech = file.tech;
+    costOfCPU = file.costOfCPU;
+    costOfRAM = file.costOfRAM;
+    costOfGPU = file.costOfGPU;
+    costOfHDD = file.costOfHDD;
+    costOfTechs = file.costOfTechs;
 }  
 
 function newGame() { // starts a new game
@@ -203,6 +213,11 @@ function newGame() { // starts a new game
     gpu = 0;
     tech = 0;
     cpu = 0;
+    costOfCPU = 0;
+    costOfRAM = 0;
+    costOfGPU = 0;
+    costOfHDD = 0;
+    costOfTechs = 0;
 }
 
 function increaseDPS() {
