@@ -12,7 +12,15 @@ let gpu = 0;
 let tech = 0;
 let cpu = 0;
 let dpsPlus = setInterval(increaseDPS, 1000);
+let costOfCPU = 100;
+let costOfRAM = 1000;
+let costOfGPU = 10000;
+let costOfHDD = 50000;
+let costOfTechs = 100000;
 // let autoSave = setInterval(saveGameState,1000); // I DONT KNOW ANYMORE?!
+
+
+
 
 function setup() {
   createCanvas(540, 900);
@@ -122,31 +130,44 @@ function draw() {
   background(150);
   textSize(15);
   
-  text(nfc('Money:' + ' $' + money, 0), 50, 20); // Money
-  text(nfc('SquidCoins: ' + squidCoin, 0), 50, 40); // SquidCoins
+  text('Money:' + ' $' + abbreviateNumber(money, 3), 50, 20); // Money
+  text('SquidCoins: ' + abbreviateNumber(squidCoin, 3), 50, 40); // SquidCoins
   text(nfc('Dollars Per Second(DPS):' + ' $' + dps, 0), 50, 60);
 
-  text(nfc('CPU\'s:' + ' ' + cpu, 0), 10, 650); // Ammount of CPU's
-  text(nfc('Cost: $100', 0), 10, 665); // Cost of CPU's
+  text('CPU\'s:' + ' ' + abbreviateNumber(cpu, 3), 10, 650); // Ammount of CPU's
+  text('Cost: $' + abbreviateNumber(costOfCPU, 3), 10, 665); // Cost of CPU's
   text('+1 DPS', 10, 680); // DPS Increase
 
-  text(nfc('RAM:' + ' ' + ram, 0), 10, 700); // Ammount of RAM
-  text(nfc('Cost: $1,000', 0), 10, 715); // Cost of RAM
+  text('RAM:' + ' ' + abbreviateNumber(ram, 3), 10, 700); // Ammount of RAM
+  text('Cost: $' + abbreviateNumber(costOfRAM, 3), 10, 715); // Cost of RAM
   text('+10 DPS', 10, 730); // DPS Increase
 
-  text(nfc('GPU\'s:' + ' ' + gpu, 0), 10, 750); // Ammount of GPU's
-  text(nfc('Cost: $10,000', 0), 10, 765); // Cost of GPU's
+  text('GPU\'s:' + ' ' + abbreviateNumber(gpu, 3), 10, 750); // Ammount of GPU's
+  text('Cost: $' + abbreviateNumber(costOfGPU, 3), 10, 765); // Cost of GPU's
   text('+100 DPS', 10, 780); // DPS Increase
 
-  text(nfc('HDD\'s:' + ' ' + hdd, 0), 10, 800); // Ammount of hdd
-  text(nfc('Cost: $50,000', 0), 10, 815); // Cost of hdd
+  text('HDD\'s:' + ' ' + abbreviateNumber(hdd, 3), 10, 800); // Ammount of hdd
+  text('Cost: ' + abbreviateNumber(costOfHDD, 0), 10, 815); // Cost of hdd
   text('+500 DPS', 10, 830); // DPS Increase
 
-  text(nfc('Techs:' + ' ' + tech, 0), 10, 850); // Ammount of Techs
-  text(nfc('Cost: $100,000', 0), 10, 865); // Cost of Techs
+  text('Techs:' + ' ' + abbreviateNumber(tech, 3), 10, 850); // Ammount of Techs
+  text('Cost: $' + abbreviateNumber(costOfTechs, 3), 10, 865); // Cost of Techs
   text('+1,000 DPS', 10, 880); // DPS Increase
 
 }
+
+function abbreviateNumber(num, fixed) {
+  if (num === null) { return null; } // terminate early
+  if (num === 0) { return '0'; } // terminate early
+  fixed = (!fixed || fixed < 0) ? 0 : fixed; // number of decimal places to show
+  var b = (num).toPrecision(2).split("e"), // get power
+      k = b.length === 1 ? 0 : Math.floor(Math.min(b[1].slice(1), 14) / 3), // floor at decimals, ceiling at trillions
+      c = k < 1 ? num.toFixed(0 + fixed) : (num / Math.pow(10, k * 3) ).toFixed(1 + fixed), // divide by power
+      d = c < 0 ? c : Math.abs(c), // enforce -0 is 0
+      e = d + ['', 'K', 'M', 'B', 'T'][k]; // append power
+  return e;
+}
+
 
 
 function saveGameState() {
