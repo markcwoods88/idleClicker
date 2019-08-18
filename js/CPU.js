@@ -3,7 +3,6 @@ function upgradeCPU() {
       cpu++;
       money = money - 100;
       dps++;
-      costOfCPU = Math.round(costOfCPU * 1.001);
     } else {
       console.log('You Broke!');
     }
@@ -14,7 +13,6 @@ function upgradeCPU() {
       cpu = cpu + 5;
       money = money - 500;
       dps = dps + 5;
-      costOfCPU = Math.round(costOfCPU * 5.005);
     } else {
       console.log('You Broke!');
     }
@@ -25,7 +23,6 @@ function upgradeCPU() {
       cpu = cpu + 25;
       money = money - 2500;
       dps = dps + 25;
-      costOfCPU = Math.round(costOfCPU * 25.025);
     } else {
       console.log('You Broke!');
     }
@@ -36,7 +33,6 @@ function upgradeCPU() {
       cpu = cpu + 50;
       money = money - 5000;
       dps = dps + 50;
-      costOfCPU = Math.round(costOfCPU * 50.05);
     } else {
       console.log('You Broke!');
     }
@@ -47,7 +43,6 @@ function upgradeCPU() {
       cpu = cpu + 100;
       money = money - 10000;
       dps = dps + 100;
-      costOfCPU = Math.round(costOfCPU * 101.1);
     } else {
       console.log('You Broke!');
     }

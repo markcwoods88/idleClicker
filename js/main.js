@@ -14,7 +14,7 @@ let cpu = 0;
 let dpsPlus = setInterval(increaseDPS, 1000);
 let costOfCPU = 100;
 let costOfRAM = 1000;
-let costOfGPU = 10000;
+let costOfGPU = 10000;  
 let costOfHDD = 50000;
 let costOfTechs = 100000;
 // let autoSave = setInterval(saveGameState,1000); // I DONT KNOW ANYMORE?!
@@ -23,7 +23,7 @@ let costOfTechs = 100000;
 
 
 function setup() {
-  createCanvas(540, 900);
+  createCanvas(800, 620);
   newGame();
   //loadGameState();
   
@@ -32,7 +32,7 @@ function setup() {
   button.mousePressed(makeMoney);
 
   button = createButton('Start New Game');
-  button.position(320, 850);
+  button.position(670, 10);
   button.mousePressed(newGame);
 
   button = createButton('Save Game');
@@ -133,25 +133,25 @@ function draw() {
   text('SquidCoins: ' + abbreviateNumber(squidCoin, 3), 50, 40); // SquidCoins
   text(nfc('Dollars Per Second(DPS):' + ' $' + dps, 0), 50, 60);
 
-  text('CPU\'s:' + ' ' + abbreviateNumber(cpu, 3), 10, 650); // Ammount of CPU's
-  text('Cost: $' + abbreviateNumber(costOfCPU, 3), 10, 665); // Cost of CPU's
-  text('+1 DPS', 10, 680); // DPS Increase
+  text('CPU\'s:' + ' ' + abbreviateNumber(cpu, 3), 550, 100); // Ammount of CPU's
+  text('Cost: $' + abbreviateNumber(costOfCPU, 3), 550, 115); // Cost of CPU's
+  text('+1 DPS', 550, 130); // DPS Increase
 
-  text('RAM:' + ' ' + abbreviateNumber(ram, 3), 200, 650); // Ammount of RAM
-  text('Cost: $' + abbreviateNumber(costOfRAM, 3), 200, 665); // Cost of RAM
-  text('+10 DPS', 200, 680); // DPS Increase
+  text('RAM:' + ' ' + abbreviateNumber(ram, 3), 550, 220); // Ammount of RAM
+  text('Cost: $' + abbreviateNumber(costOfRAM, 3), 550, 235); // Cost of RAM
+  text('+10 DPS', 550, 250); // DPS Increase
 
-  text('GPU\'s:' + ' ' + abbreviateNumber(gpu, 3), 10, 750); // Ammount of GPU's
-  text('Cost: $' + abbreviateNumber(costOfGPU, 3), 10, 765); // Cost of GPU's
-  text('+100 DPS', 10, 780); // DPS Increase
+  text('GPU\'s:' + ' ' + abbreviateNumber(gpu, 3), 550, 300); // Ammount of GPU's
+  text('Cost: $' + abbreviateNumber(costOfGPU, 3), 550, 315); // Cost of GPU's
+  text('+100 DPS', 550, 330); // DPS Increase
 
-  text('HDD\'s:' + ' ' + abbreviateNumber(hdd, 3), 200, 750); // Ammount of hdd
-  text('Cost: ' + abbreviateNumber(costOfHDD, 0), 200, 765); // Cost of hdd
-  text('+500 DPS', 200, 780); // DPS Increase
+  text('HDD\'s:' + ' ' + abbreviateNumber(hdd, 3), 550, 400); // Ammount of hdd
+  text('Cost: ' + abbreviateNumber(costOfHDD, 0), 550, 415); // Cost of hdd
+  text('+500 DPS', 550, 430); // DPS Increase
 
-  text('Techs:' + ' ' + abbreviateNumber(tech, 3), 10, 850); // Ammount of Techs
-  text('Cost: $' + abbreviateNumber(costOfTechs, 3), 10, 865); // Cost of Techs
-  text('+1,000 DPS', 10, 880); // DPS Increase
+  text('Techs:' + ' ' + abbreviateNumber(tech, 3), 550, 520); // Ammount of Techs
+  text('Cost: $' + abbreviateNumber(costOfTechs, 3), 550, 535); // Cost of Techs
+  text('+1,000 DPS', 550, 550); // DPS Increase
 
   text('X1', 50, 200);
   text('X5', 155, 200);
@@ -241,11 +241,11 @@ function newGame() { // starts a new game
     gpu = 0;
     tech = 0;
     cpu = 0;
-    costOfCPU = 0;
-    costOfRAM = 0;
-    costOfGPU = 0;
-    costOfHDD = 0;
-    costOfTechs = 0;
+    costOfCPU = 100;
+    costOfRAM = 1000;
+    costOfGPU = 10000;  
+    costOfHDD = 50000;
+    costOfTechs = 100000;
 }
 
 function increaseDPS() {
