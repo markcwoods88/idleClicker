@@ -1,13 +1,17 @@
 {
+    "app_name": "idleClicker",
+    "chromium-args": "--data-path='./saves/' --in-process-gpu --disable-transparency",
     "main": "index.html",
     "name": "squidcoin",
-    "window": {
-      "title": "SquidCoin",
-      "width": ,
-      "height": ,
-      "fullscreen": false,
-      "toolbar": true
-    },
     "version": "0.1.0",
-    "chromium-args": "--data-path='./saves/' --in-process-gpu --disable-transparency"
-  }
+    "webkit": {},
+    "window": {
+        "fullscreen": false,
+        "height": 900,
+        "id": "idleClicker",
+        "show_in_taskbar": true,
+        "title": "SquidCoin",
+        "toolbar": true,
+        "width": 540
+    }
+}
