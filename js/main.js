@@ -17,15 +17,12 @@ let costOfRAM = 1000;
 let costOfGPU = 10000;  
 let costOfHDD = 50000;
 let costOfTechs = 100000;
-// let autoSave = setInterval(saveGameState,1000); // I DONT KNOW ANYMORE?!
-
-
 
 
 function setup() {
   createCanvas(800, 620);
   newGame();
-  //loadGameState();
+  // loadGameState();
   
   button = createButton('Beg For $5');
   button.position(320, 25);
@@ -189,14 +186,15 @@ function abbreviateNumber(num, fixed) { // takes large numbers like 100,000 and 
   if (num === 0) { return '0'; } // terminate early
   fixed = (!fixed || fixed < 0) ? 0 : fixed; // number of decimal places to show
   var b = (num).toPrecision(2).split("e"), // get power
-      k = b.length === 1 ? 0 : Math.floor(Math.min(b[1].slice(1), 14) / 3), // floor at decimals, ceiling at trillions
+      k = b.length === 1 ? 0 : Math.floor(Math.min(b[1].slice(1), 14) / 3), // floor at decimals, ceiling at quadrillions
       c = k < 1 ? num.toFixed(0 + fixed) : (num / Math.pow(10, k * 3) ).toFixed(1 + fixed), // divide by power
       d = c < 0 ? c : Math.abs(c), // enforce -0 is 0
-      e = d + ['', 'K', 'M', 'B', 'T'][k]; // append power
+      e = d + ['', 'K', 'M', 'B', 'T', 'Q'][k]; // append power
   return e;
 }
 
 function saveGameState() { // saves the game
+  let lastSaveDate = Date.now();
   var file = {
         money: money,
         cpu: cpu,
@@ -210,13 +208,22 @@ function saveGameState() { // saves the game
         costOfRAM: costOfRAM,
         costOfGPU: costOfGPU,
         costOfHDD: costOfHDD,
-        costOfTechs: costOfTechs
+        costOfTechs: costOfTechs,
+        lastSaveDate: lastSaveDate
     };
     localStorage.setItem('saveFile',JSON.stringify(file));
 }
 
+function offlineEarnings(){
+  let currentTime = Date.now(); // gets current time
+  offline = dps * (Math.round((currentTime - lastSaveDate) / 1000)); // gets seconds
+  money = money + offline; // adds money to offline earnings
+  alert("You earned: $" + offline + " while you were gone!") // alert message
+}
+
+
 function loadGameState() { // loads the game
-  var file = JSON.parse(localStorage.getItem('saveFile'));
+    var file = JSON.parse(localStorage.getItem('saveFile'));
     money = file.money;
     cpu = file.cpu;
     squidCoin = file.squidCoin;
@@ -230,7 +237,11 @@ function loadGameState() { // loads the game
     costOfGPU = file.costOfGPU;
     costOfHDD = file.costOfHDD;
     costOfTechs = file.costOfTechs;
-}  
+    lastSaveDate = file.lastSaveDate;
+    offlineEarnings();
+}
+
+
 
 function newGame() { // starts a new game
     money = 0;
@@ -251,6 +262,7 @@ function newGame() { // starts a new game
 function increaseDPS() {
   if (dps >= 1) {
     money = (money + dps);
+    saveGameState(); // Basically auto save
   }
 }
 
