@@ -4,7 +4,8 @@
 
 let button;
 let money = 0;
-let squidCoin = 0
+let totalMoney = 0;
+let squidCoin = 0;
 let dps = 0;
 let ram = 0;
 let hdd = 0;
@@ -22,10 +23,9 @@ let costOfTechs = 100000;
 function setup() {
   createCanvas(800, 620);
   newGame();
-  // loadGameState();
   
   button = createButton('Beg For $5');
-  button.position(320, 25);
+  button.position(320, 20);
   button.mousePressed(makeMoney);
 
   button = createButton('Start New Game');
@@ -127,6 +127,7 @@ function draw() {
   textSize(18);
   
   text('Money:' + ' $' + abbreviateNumber(money, 3), 50, 20); // Money
+  text('Total Money Earned:' + ' $' + abbreviateNumber(totalMoney, 3), 550, 60); // Total Money
   text('SquidCoins: ' + abbreviateNumber(squidCoin, 3), 50, 40); // SquidCoins
   text(nfc('Dollars Per Second(DPS):' + ' $' + dps, 0), 50, 60);
 
@@ -204,6 +205,7 @@ function saveGameState() { // saves the game
         hdd: hdd,
         gpu: gpu,
         tech: tech,
+        totalMoney: totalMoney,
         costOfCPU: costOfCPU,
         costOfRAM: costOfRAM,
         costOfGPU: costOfGPU,
@@ -217,10 +219,10 @@ function saveGameState() { // saves the game
 function offlineEarnings(){
   let currentTime = Date.now(); // gets current time
   offline = dps * (Math.round((currentTime - lastSaveDate) / 1000)); // gets seconds
-  money = money + offline; // adds money to offline earnings
-  alert("You earned: $" + offline + " while you were gone!") // alert message
+  money += offline; // adds money to offline earnings
+  totalMoney += offline;
+  alert("You earned: $" + nfc(offline) + " while you were gone!") // alert message
 }
-
 
 function loadGameState() { // loads the game
     var file = JSON.parse(localStorage.getItem('saveFile'));
@@ -232,6 +234,7 @@ function loadGameState() { // loads the game
     hdd = file.hdd;
     gpu = file.gpu;
     tech = file.tech;
+    totalMoney = file.totalMoney;
     costOfCPU = file.costOfCPU;
     costOfRAM = file.costOfRAM;
     costOfGPU = file.costOfGPU;
@@ -240,8 +243,6 @@ function loadGameState() { // loads the game
     lastSaveDate = file.lastSaveDate;
     offlineEarnings();
 }
-
-
 
 function newGame() { // starts a new game
     money = 0;
@@ -252,6 +253,7 @@ function newGame() { // starts a new game
     gpu = 0;
     tech = 0;
     cpu = 0;
+    totalMoney = 0;
     costOfCPU = 100;
     costOfRAM = 1000;
     costOfGPU = 10000;  
@@ -261,13 +263,15 @@ function newGame() { // starts a new game
 
 function increaseDPS() {
   if (dps >= 1) {
-    money = (money + dps);
+    money += dps;
+    totalMoney += dps;
     saveGameState(); // Basically auto save
   }
 }
 
 function makeMoney() { // beg for 5$
-  money = money + 5;
+  money += 5;
+  totalMoney += 5;
 }
 
 // Add text below each button for how much DPS it adds.
