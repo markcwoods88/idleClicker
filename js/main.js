@@ -18,9 +18,10 @@ let costOfRAM = 1000;
 let costOfGPU = 10000;  
 let costOfHDD = 50000;
 let costOfTechs = 100000;
+let costOfSquidCoin = 10000000000;
 
 
-function setup() {
+function setup() { // creates canvas and buttons.
   createCanvas(800, 620);
   newGame();
   
@@ -40,6 +41,10 @@ function setup() {
   button.position(450, 35);
   button.mousePressed(loadGameState);
 
+  button = createButton('Credits');
+  button.position(730, 590);
+  button.mousePressed(credits);
+  
   button = createImg('assets/cpu.png');
   button.position(10, 80);
   button.mousePressed(upgradeCPU); 
@@ -122,10 +127,10 @@ function setup() {
 
 }
 
-function draw() {
+function draw() { // adds all the text
   background(150);
   textSize(18);
-  
+
   text('Money:' + ' $' + abbreviateNumber(money, 3), 50, 20); // Money
   text('Total Money Earned:' + ' $' + abbreviateNumber(totalMoney, 3), 550, 60); // Total Money
   text('SquidCoins: ' + abbreviateNumber(squidCoin, 3), 50, 40); // SquidCoins
@@ -205,6 +210,8 @@ function saveGameState() { // saves the game
         hdd: hdd,
         gpu: gpu,
         tech: tech,
+        costOfSquidCoin: costOfSquidCoin,
+        squidCoin: squidCoin,
         totalMoney: totalMoney,
         costOfCPU: costOfCPU,
         costOfRAM: costOfRAM,
@@ -216,7 +223,14 @@ function saveGameState() { // saves the game
     localStorage.setItem('saveFile',JSON.stringify(file));
 }
 
-function offlineEarnings(){
+function increaseSquidCoin() { // increase SquidCoins
+  if (totalMoney >= costOfSquidCoin) {
+    squidCoin += 1;
+    costOfSquidCoin *= 1.25;
+  }
+}
+
+function offlineEarnings(){ // Money earned while not playing
   let currentTime = Date.now(); // gets current time
   offline = dps * (Math.round((currentTime - lastSaveDate) / 1000)); // gets seconds
   money += offline; // adds money to offline earnings
@@ -234,6 +248,7 @@ function loadGameState() { // loads the game
     hdd = file.hdd;
     gpu = file.gpu;
     tech = file.tech;
+    costOfSquidCoin = file.costOfSquidCoin;
     totalMoney = file.totalMoney;
     costOfCPU = file.costOfCPU;
     costOfRAM = file.costOfRAM;
@@ -253,6 +268,7 @@ function newGame() { // starts a new game
     gpu = 0;
     tech = 0;
     cpu = 0;
+    costOfSquidCoin = 10000000000;
     totalMoney = 0;
     costOfCPU = 100;
     costOfRAM = 1000;
@@ -261,10 +277,11 @@ function newGame() { // starts a new game
     costOfTechs = 100000;
 }
 
-function increaseDPS() {
+function increaseDPS() { // checks dps and increases it.
   if (dps >= 1) {
     money += dps;
     totalMoney += dps;
+    increaseSquidCoin();
     saveGameState(); // Basically auto save
   }
 }
@@ -272,6 +289,10 @@ function increaseDPS() {
 function makeMoney() { // beg for 5$
   money += 5;
   totalMoney += 5;
+}
+
+function credits(){ // credits button
+  alert("This game was created by Mark Woods. All images are from OpenGameArt.org except the 'tech' icon made by Freepik from www.flaticon.com ") // alert message
 }
 
 // Add text below each button for how much DPS it adds.
