@@ -295,6 +295,5 @@ function credits(){ // credits button
   alert("This game was created by Mark Woods. All images are from OpenGameArt.org except the 'tech' icon made by Freepik from www.flaticon.com ") // alert message
 }
 
-// Add text below each button for how much DPS it adds.
 // buy squidcoin button.
 // squidcoins will buy big upgrades.
